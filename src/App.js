@@ -4,15 +4,30 @@ import Input from './Input'
 import Todo from './Todo'
 
 class App extends Component {
-  todos = ['Geschenke', 'Deko', 'Silvester planen']
+  state = {
+    todos: []
+  }
+
+  addTodoArray = event => {
+    if (event.key === 'Enter') {
+      const newTodo = [
+        { text: event.target.value, done: false },
+        ...this.state.todos
+      ]
+      this.setState({
+        todos: newTodo
+      })
+      event.target.value = ''
+    }
+  }
 
   render() {
     return (
       <div className="App">
-        <Input />
+        <Input keyupfunction={this.addTodoArray} />
         <div>
-          {this.todos.map(todo => (
-            <Todo text={todo} />
+          {this.state.todos.map(todo => (
+            <Todo key={todo.text} text={todo.text} />
           ))}
         </div>
       </div>
