@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import './App.css'
-
 import Input from './Input'
 import Todo from './Todo'
 
