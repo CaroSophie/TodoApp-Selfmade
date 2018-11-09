@@ -2,8 +2,17 @@ import React, { Component } from 'react'
 
 class Todo extends Component {
   render() {
-    const { text } = this.props
-    return <li>{text}</li>
+    const { text, toggle, done } = this.props
+    return (
+      <li
+        onClick={index => {
+          toggle(index)
+        }}
+        className={done ? 'Toggle' : ''}
+      >
+        {text}
+      </li>
+    )
   }
 }
 
