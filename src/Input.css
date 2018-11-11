@@ -1,5 +1,5 @@
 .Input {
-  border: 5px solid darkgreen;
+  border: 5px solid darkred;
   border-radius: 5px 5px 5px;
   margin: 10px;
   background-color: whitesmoke;
@@ -7,5 +7,6 @@
 
 .Styleinput {
   display: grid;
-  justify-content: center;
+  grid-template-columns: 50fr 50fr;
+  grid-template-rows: auto;
 }

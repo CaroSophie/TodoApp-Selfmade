@@ -3,6 +3,7 @@ import './App.css'
 import Input from './Input'
 import Todo from './Todo'
 import Delete from './Delete'
+import Counter from './Counter'
 
 class App extends Component {
   state = {
@@ -63,11 +64,16 @@ class App extends Component {
     ))
   }
 
+  counterTodo() {
+    return this.state.todos.filter(item => item.done).length
+  }
+
   render() {
     return (
       <div>
         <div className="Styleinput">
-          <Input keyupfunction={this.addTodoArray} />{' '}
+          <Input keyupfunction={this.addTodoArray} />
+          <Counter num={this.counterTodo()} />
         </div>
         {this.renderTodoList()}
       </div>
