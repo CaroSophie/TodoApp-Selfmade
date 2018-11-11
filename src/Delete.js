@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import './Delete.css'
+import './Button.css'
 
 class Delete extends Component {
   render() {
+    const { deletefunction } = this.props
     return (
-      <button onClick={this.props.deletefunction} className="Button">
+      <button onClick={deletefunction} className="Button">
         x
       </button>
     )

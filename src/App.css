@@ -10,5 +10,10 @@ body {
   margin: 10px;
   color: darkred;
   font-weight: bold;
-  background: darkgrey;
+  background: whitesmoke;
+}
+
+.Toggle {
+  text-decoration: line-through;
+  color: black;
 }
