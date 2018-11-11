@@ -7,7 +7,11 @@ import Counter from './Counter'
 
 class App extends Component {
   state = {
-    todos: []
+    todos: [
+      { text: 'Geschenke besorgen', done: false },
+      { text: 'Silvester planen', done: false },
+      { text: 'App Idee konkretisieren', done: false }
+    ]
   }
 
   addTodoArray = event => {
