@@ -10,7 +10,7 @@ class App extends Component {
     todos: [
       { text: 'Geschenke besorgen', done: false },
       { text: 'Silvester planen', done: false },
-      { text: 'App Idee konkretisieren', done: false }
+      { text: 'App Idee konkretisieren', done: true }
     ]
   }
 
