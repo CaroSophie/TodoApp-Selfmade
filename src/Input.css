@@ -5,11 +5,10 @@
   background-color: white;
   letter-spacing: -1px;
   font-size: 15px;
-  box-shadow: 3px 3px white;
 }
 
 .Styleinput {
   display: grid;
-  grid-template-columns: 50fr 50fr;
+  grid-template-columns: 60fr 40fr;
   grid-template-rows: auto;
 }
