@@ -8,11 +8,7 @@ import Counter from './Counter'
 
 class App extends Component {
   state = {
-    todos: [
-      { text: 'Geschenke besorgen', done: false },
-      { text: 'Silvester planen', done: false },
-      { text: 'App Idee konkretisieren', done: true }
-    ]
+    todos: this.load()
   }
 
   addTodo = event => {
@@ -74,6 +70,7 @@ class App extends Component {
   }
 
   render() {
+    this.save()
     return (
       <div>
         <Header />
@@ -84,6 +81,18 @@ class App extends Component {
         {this.renderTodoList()}
       </div>
     )
+  }
+
+  save() {
+    localStorage.setItem('todo-app--todos', JSON.stringify(this.state.todos))
+  }
+
+  load() {
+    try {
+      return JSON.parse(localStorage.getItem('todo-app--todos')) || []
+    } catch (err) {
+      return []
+    }
   }
 }
 
