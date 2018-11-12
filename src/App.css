@@ -12,6 +12,7 @@ body {
   font-weight: bold;
   background: whitesmoke;
   opacity: 0.8;
+  height: 40px;
 }
 
 .Toggle {

@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import './App.css'
+import Header from './Header'
 import Input from './Input'
 import Todo from './Todo'
 import Delete from './Delete'
 import Counter from './Counter'
-import Header from './Header'
 
 class App extends Component {
   state = {
