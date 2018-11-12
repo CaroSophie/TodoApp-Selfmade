@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import uid from 'uid'
 import './App.css'
 import Header from './Header'
 import Input from './Input'
@@ -9,17 +10,13 @@ import Separator from './Separator'
 
 class App extends Component {
   state = {
-    todos: [
-      { text: 'Silvester planen', done: false },
-      { text: 'Geschenk Quentin Geb', done: true },
-      { text: 'Weihnachtsgeschenke', done: false }
-    ]
+    todos: []
   }
 
   addTodo = event => {
     if (event.key === 'Enter') {
       const newTodo = [
-        { text: event.target.value, done: false },
+        { text: event.target.value, done: false, id: uid() },
         ...this.state.todos
       ]
       this.setState({
@@ -29,8 +26,9 @@ class App extends Component {
     }
   }
 
-  toggleDone = index => {
+  toggleDone = id => {
     const { todos } = this.state
+    const index = todos.findIndex(todo => todo.id === id)
     const toggleDone = [
       ...todos.slice(0, index),
       { ...todos[index], done: !todos[index].done },
@@ -42,8 +40,9 @@ class App extends Component {
     })
   }
 
-  deleteToDo = index => {
+  deleteToDo = id => {
     const { todos } = this.state
+    const index = todos.findIndex(todo => todo.id === id)
     const deleteTodos = [...todos.slice(0, index), ...todos.slice(index + 1)]
 
     this.setState({
@@ -54,22 +53,15 @@ class App extends Component {
   renderTodoList() {
     return this.state.todos
       .filter(item => !item.done)
-      .map((todo, index) => (
-        <div className="Showtodos" key={`Showtodos${index}`}>
+      .map(todo => (
+        <div className="Showtodos">
           <Todo
-            key={index}
+            key={todo.id}
             text={todo.text}
-            toggle={() => {
-              this.toggleDone(index)
-            }}
+            toggle={() => this.toggleDone(todo.id)}
             done={todo.done}
           />
-          <Delete
-            deletefunction={() => {
-              this.deleteToDo(index)
-            }}
-            key={`btn${index}`}
-          />
+          <Delete deletefunction={() => this.deleteToDo(todo.id)} />
         </div>
       ))
   }
@@ -77,18 +69,15 @@ class App extends Component {
   renderDoneList() {
     return this.state.todos
       .filter(item => item.done)
-      .map((todo, index) => (
-        <div className="Showtodos" key={`Showtodos${index}`}>
+      .map(todo => (
+        <div className="Showtodos">
           <Todo
-            key={index}
+            key={todo.id}
             text={todo.text}
-            toggle={() => this.toggleDone(index)}
+            toggle={() => this.toggleDone(todo.id)}
             done={todo.done}
           />
-          <Delete
-            handleDelete={() => this.deleteToDo(index)}
-            key={`btn${index}`}
-          />
+          <Delete handleDelete={() => this.deleteToDo(todo.id)} />
         </div>
       ))
   }

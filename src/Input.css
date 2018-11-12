@@ -1,9 +1,9 @@
 .Input {
   margin: 10px;
   background-color: white;
-  letter-spacing: -1px;
   font-size: 15px;
   height: 40px;
+  width: 65%;
 }
 
 .Input:focus {
@@ -12,7 +12,4 @@
 
 .Styleinput {
   display: flex;
-  grid-template-columns: 60fr 40fr;
-  grid-template-rows: auto;
-  justify-content: space-between;
 }
