@@ -15,7 +15,7 @@ class App extends Component {
     ]
   }
 
-  addTodoArray = event => {
+  addTodo = event => {
     if (event.key === 'Enter') {
       const newTodo = [
         { text: event.target.value, done: false },
@@ -78,7 +78,7 @@ class App extends Component {
       <div>
         <Header />
         <div className="Styleinput">
-          <Input keyupfunction={this.addTodoArray} />
+          <Input handleKeyUp={this.addTodo} />
           <Counter num={this.counterTodo()} />
         </div>
         {this.renderTodoList()}

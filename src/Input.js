@@ -3,15 +3,12 @@ import './Input.css'
 
 class Input extends Component {
   render() {
-    const { keyupfunction } = this.props
+    const { handleKeyUp } = this.props
     return (
       <input
         className="Input"
-        type="text"
-        placeholder="Add todo here"
-        onKeyUp={event => {
-          keyupfunction(event)
-        }}
+        placeholder="Add todo here ..."
+        onKeyUp={handleKeyUp}
       />
     )
   }
