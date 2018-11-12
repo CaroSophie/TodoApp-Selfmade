@@ -3,9 +3,9 @@ import './Button.css'
 
 class Delete extends Component {
   render() {
-    const { deletefunction } = this.props
+    const { handleDelete } = this.props
     return (
-      <button onClick={deletefunction} className="Button">
+      <button onClick={handleDelete} className="Button">
         x
       </button>
     )

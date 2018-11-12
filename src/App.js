@@ -5,6 +5,7 @@ import Input from './Input'
 import Todo from './Todo'
 import Delete from './Delete'
 import Counter from './Counter'
+import Separator from './Separator'
 
 class App extends Component {
   state = {
@@ -51,24 +52,45 @@ class App extends Component {
   }
 
   renderTodoList() {
-    return this.state.todos.map((todo, index) => (
-      <div className="Showtodos" key={`Showtodos${index}`}>
-        <Todo
-          key={index}
-          text={todo.text}
-          toggle={() => {
-            this.toggleDone(index)
-          }}
-          done={todo.done}
-        />
-        <Delete
-          deletefunction={() => {
-            this.deleteToDo(index)
-          }}
-          key={`btn${index}`}
-        />
-      </div>
-    ))
+    return this.state.todos
+      .filter(item => !item.done)
+      .map((todo, index) => (
+        <div className="Showtodos" key={`Showtodos${index}`}>
+          <Todo
+            key={index}
+            text={todo.text}
+            toggle={() => {
+              this.toggleDone(index)
+            }}
+            done={todo.done}
+          />
+          <Delete
+            deletefunction={() => {
+              this.deleteToDo(index)
+            }}
+            key={`btn${index}`}
+          />
+        </div>
+      ))
+  }
+
+  renderDoneList() {
+    return this.state.todos
+      .filter(item => item.done)
+      .map((todo, index) => (
+        <div className="Showtodos" key={`Showtodos${index}`}>
+          <Todo
+            key={index}
+            text={todo.text}
+            toggle={() => this.toggleDone(index)}
+            done={todo.done}
+          />
+          <Delete
+            handleDelete={() => this.deleteToDo(index)}
+            key={`btn${index}`}
+          />
+        </div>
+      ))
   }
 
   counterTodo() {
@@ -83,7 +105,10 @@ class App extends Component {
           <Input handleKeyUp={this.addTodo} />
           <Counter num={this.counterTodo()} />
         </div>
+        <Separator text="TODO" />
         {this.renderTodoList()}
+        <Separator text="DONE" />
+        {this.renderDoneList()}
       </div>
     )
   }

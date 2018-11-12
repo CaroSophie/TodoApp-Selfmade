@@ -3,7 +3,8 @@ import './Counter.css'
 
 class Counter extends Component {
   render() {
-    return <div className="Counter">Checked: {this.props.num}</div>
+    const { num } = this.props
+    return <div className="Counter">Checked: {num}</div>
   }
 }
 
