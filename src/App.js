@@ -4,6 +4,7 @@ import Input from './Input'
 import Todo from './Todo'
 import Delete from './Delete'
 import Counter from './Counter'
+import Header from './Header'
 
 class App extends Component {
   state = {
@@ -75,6 +76,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <Header />
         <div className="Styleinput">
           <Input keyupfunction={this.addTodoArray} />
           <Counter num={this.counterTodo()} />
