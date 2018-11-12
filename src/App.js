@@ -8,7 +8,11 @@ import Counter from './Counter'
 
 class App extends Component {
   state = {
-    todos: this.load()
+    todos: [
+      { text: 'Silvester planen', done: false },
+      { text: 'Geschenk Quentin Geb', done: true },
+      { text: 'Weihnachtsgeschenke', done: false }
+    ]
   }
 
   addTodo = event => {
@@ -31,6 +35,7 @@ class App extends Component {
       { ...todos[index], done: !todos[index].done },
       ...todos.slice(index + 1)
     ]
+
     this.setState({
       todos: toggleDone
     })
@@ -47,9 +52,9 @@ class App extends Component {
 
   renderTodoList() {
     return this.state.todos.map((todo, index) => (
-      <div className="Showtodos">
+      <div className="Showtodos" key={`Showtodos${index}`}>
         <Todo
-          key={todo.text}
+          key={index}
           text={todo.text}
           toggle={() => {
             this.toggleDone(index)
@@ -60,6 +65,7 @@ class App extends Component {
           deletefunction={() => {
             this.deleteToDo(index)
           }}
+          key={`btn${index}`}
         />
       </div>
     ))
@@ -70,7 +76,6 @@ class App extends Component {
   }
 
   render() {
-    this.save()
     return (
       <div>
         <Header />
@@ -81,18 +86,6 @@ class App extends Component {
         {this.renderTodoList()}
       </div>
     )
-  }
-
-  save() {
-    localStorage.setItem('todo-app--todos', JSON.stringify(this.state.todos))
-  }
-
-  load() {
-    try {
-      return JSON.parse(localStorage.getItem('todo-app--todos')) || []
-    } catch (err) {
-      return []
-    }
   }
 }
 
