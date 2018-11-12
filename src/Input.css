@@ -5,6 +5,10 @@
   font-size: 15px;
 }
 
+.Input:focus {
+  outline: none;
+}
+
 .Styleinput {
   display: grid;
   grid-template-columns: 60fr 40fr;
