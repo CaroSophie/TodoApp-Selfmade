@@ -10,7 +10,7 @@ import Separator from './Separator'
 
 class App extends Component {
   state = {
-    todos: []
+    todos: this.load()
   }
 
   addTodo = event => {
@@ -87,6 +87,7 @@ class App extends Component {
   }
 
   render() {
+    this.save()
     return (
       <div>
         <Header />
@@ -100,6 +101,18 @@ class App extends Component {
         {this.renderDoneList()}
       </div>
     )
+  }
+
+  save() {
+    localStorage.setItem('todo-app--todos', JSON.stringify(this.state.todos))
+  }
+
+  load() {
+    try {
+      return JSON.parse(localStorage.getItem('todo-app--todos')) || []
+    } catch (err) {
+      return []
+    }
   }
 }
 

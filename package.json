@@ -11,7 +11,8 @@
   },
   "scripts": {
     "start": "craco start",
-    "build": "craco build && move build docs",
+    "build": "craco build && rm -rf docs && mv build docs",
+    "deploy": "npm run build && cd docs && now --public",
     "test": "craco test",
     "eject": "react-scripts eject"
   },
