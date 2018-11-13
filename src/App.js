@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import uid from 'uid'
-import './App.css'
 import Header from './Header'
 import Input from './Input'
 import Todo from './Todo'

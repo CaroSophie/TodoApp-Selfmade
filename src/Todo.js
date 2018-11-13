@@ -1,13 +1,23 @@
 import React, { Component } from 'react'
-import './Todo.css'
+import styled from 'styled-components'
+
+const Toggle = styled.li`
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  & .Toggle {
+    text-decoration: line-through;
+    color: black;
+  }
+`
 
 class Todo extends Component {
   render() {
     const { text, toggle, done } = this.props
     return (
-      <li onClick={toggle} className={done ? 'Toggle Textstyle' : 'Textstyle'}>
+      <Toggle onClick={toggle} className={done ? 'Toggle ' : ''}>
         {text}
-      </li>
+      </Toggle>
     )
   }
 }
