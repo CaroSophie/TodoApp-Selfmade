@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-const Toggle = styled.li`
+const Lined = styled.li`
   display: flex;
   align-items: center;
   margin: 10px;
-  & .Toggle {
+  &.toggle {
     text-decoration: line-through;
     color: black;
   }
@@ -15,9 +15,9 @@ class Todo extends Component {
   render() {
     const { text, toggle, done } = this.props
     return (
-      <Toggle onClick={toggle} className={done ? 'Toggle ' : ''}>
+      <Lined onClick={toggle} className={done ? 'toggle' : ''}>
         {text}
-      </Toggle>
+      </Lined>
     )
   }
 }
