@@ -7,7 +7,24 @@ import Todo from './Todo'
 import Delete from './Delete'
 import Counter from './Counter'
 import Separator from './Separator'
-//import styled from 'styled-components'
+import styled from 'styled-components'
+
+const Styleinput = styled.div`
+  display: flex;
+`
+
+const Showtodos = styled.div`
+  display: grid;
+  grid-template-columns: 90fr 10fr;
+  grid-template-rows: auto;
+  grid-gap: 4em;
+  margin: 10px;
+  color: darkred;
+  font-weight: bold;
+  background: whitesmoke;
+  opacity: 0.8;
+  height: 40px;
+`
 
 class App extends Component {
   state = {
@@ -55,7 +72,7 @@ class App extends Component {
     return this.state.todos
       .filter(item => !item.done)
       .map(todo => (
-        <div className="Showtodos">
+        <Showtodos key={todo.id}>
           <Todo
             key={todo.id}
             text={todo.text}
@@ -63,7 +80,7 @@ class App extends Component {
             done={todo.done}
           />
           <Delete deletefunction={() => this.deleteToDo(todo.id)} />
-        </div>
+        </Showtodos>
       ))
   }
 
@@ -71,7 +88,7 @@ class App extends Component {
     return this.state.todos
       .filter(item => item.done)
       .map(todo => (
-        <div className="Showtodos">
+        <Showtodos key={todo.id}>
           <Todo
             key={todo.id}
             text={todo.text}
@@ -79,7 +96,7 @@ class App extends Component {
             done={todo.done}
           />
           <Delete handleDelete={() => this.deleteToDo(todo.id)} />
-        </div>
+        </Showtodos>
       ))
   }
 
@@ -92,10 +109,10 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <div className="Styleinput">
+        <Styleinput>
           <Input handleKeyUp={this.addTodo} />
           <Counter num={this.counterTodo()} />
-        </div>
+        </Styleinput>
         <Separator text="TODO" />
         {this.renderTodoList()}
         <Separator text="DONE" />

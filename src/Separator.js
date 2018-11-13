@@ -22,7 +22,7 @@ class Separator extends Component {
     const { text } = this.props
     return (
       <Wrapper>
-        <Line width={5} />
+        <Line width={2} />
         <Text>{text}</Text>
         <Line width={2} />
       </Wrapper>

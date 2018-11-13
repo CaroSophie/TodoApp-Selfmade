@@ -1,20 +1,3 @@
-body {
-  background: linear-gradient(0.75turn, #e66465, #9198e5);
-}
-
-.Showtodos {
-  display: grid;
-  grid-template-columns: 90fr 10fr;
-  grid-template-rows: auto;
-  grid-gap: 4em;
-  margin: 10px;
-  color: darkred;
-  font-weight: bold;
-  background: whitesmoke;
-  opacity: 0.8;
-  height: 40px;
-}
-
 .Toggle {
   text-decoration: line-through;
   color: black;

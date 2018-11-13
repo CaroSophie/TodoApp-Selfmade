@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
-import './Button.css'
+import styled from 'styled-components'
+
+const Button = styled.button`
+  background: grey;
+  color: white;
+  font-size: 1em;
+`
 
 class Delete extends Component {
   render() {
     const { handleDelete } = this.props
-    return (
-      <button onClick={handleDelete} className="Button">
-        x
-      </button>
-    )
+    return <Button onClick={handleDelete}>x</Button>
   }
 }
 
