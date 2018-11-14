@@ -127,15 +127,14 @@ class App extends Component {
         </Styleinput>
         <Progressbar percentage={this.determineProgress()} />
         <Separator text="TODO" />
-
         {this.renderTodoList()}
         <Separator text="DONE" />
         {this.renderDoneList()}
         <Breakline />
         <Footr>
           <Button
-            defaultText={'Test'}
-            alternativeText={'Hallo'}
+            defaultText={'Just kidding'}
+            alternativeText={'Click here'}
             onClick={() => console.log('click')}
           />
         </Footr>
