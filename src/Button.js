@@ -4,8 +4,9 @@ import styled from 'styled-components'
 const Togglebutton = styled.button`
   width: 100px;
   height: 40px;
-  background: darkred;
-  color: white;
+  background: whitesmoke;
+  color: black;
+  font-size: 1em;
   margin-top: 20px;
   margin-bottom: 20px;
 
@@ -14,8 +15,9 @@ const Togglebutton = styled.button`
   }
 
   &.active {
-    background: whitesmoke;
-    color: black;
+    background: linear-gradient(0.75turn, #e66465, #9198e5);
+    color: white;
+    font-size: 1em;
   }
 `
 
