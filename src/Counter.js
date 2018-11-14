@@ -10,6 +10,7 @@ const Counting = styled.div`
   display: flex;
   align-items: center;
   margin-left: auto;
+  padding: 5px;
 `
 
 class Counter extends Component {

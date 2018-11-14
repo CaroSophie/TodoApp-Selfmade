@@ -8,6 +8,7 @@ const Writetodo = styled.input`
   width: 65%;
   border-radius: 10px 10px 10px;
   border: 2px solid grey;
+  margin-left: 10px;
 
   &:focus {
     outline: none;

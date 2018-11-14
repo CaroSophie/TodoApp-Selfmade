@@ -8,6 +8,9 @@ const Heading = styled.h1`
   letter-spacing: -1px;
   border: 2px solid white;
   font-weight: bold;
+  margin: 10px;
+  margin-top: 15px;
+  margin-bottom: 20px;
 `
 
 class Header extends Component {
