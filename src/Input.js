@@ -16,9 +16,18 @@ const Writetodo = styled.input`
 `
 
 class Input extends Component {
+  handleKeyUp = event => {
+    const input = event.target
+    if (event.key === 'Enter') {
+      this.props.onEnter(input.value)
+      input.value = ''
+      input.focus()
+    }
+  }
   render() {
-    const { handleKeyUp } = this.props
-    return <Writetodo placeholder="Add todo here ..." onKeyUp={handleKeyUp} />
+    return (
+      <Writetodo placeholder="Add todo here ..." onKeyUp={this.handleKeyUp} />
+    )
   }
 }
 

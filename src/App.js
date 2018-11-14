@@ -46,17 +46,10 @@ class App extends Component {
     todos: this.load()
   }
 
-  addTodo = event => {
-    if (event.key === 'Enter') {
-      const newTodo = [
-        { text: event.target.value, done: false, id: uid() },
-        ...this.state.todos
-      ]
-      this.setState({
-        todos: newTodo
-      })
-      event.target.value = ''
-    }
+  addTodo = text => {
+    this.setState({
+      todos: [{ text, done: false, id: uid() }, ...this.state.todos]
+    })
   }
 
   toggleDone = id => {
@@ -122,7 +115,7 @@ class App extends Component {
       <div>
         <Header />
         <Styleinput>
-          <Input handleKeyUp={this.addTodo} />
+          <Input onEnter={this.addTodo} />
           <Counter num={this.counterTodo()} />
         </Styleinput>
         <Progressbar percentage={this.determineProgress()} />
@@ -133,7 +126,7 @@ class App extends Component {
         <Breakline />
         <Footr>
           <Button
-            defaultText={'Just kidding'}
+            defaultText={'HAHAHAHA verarscht'}
             alternativeText={'Click here'}
             onClick={() => console.log('click')}
           />

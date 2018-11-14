@@ -6,7 +6,6 @@ const Togglebutton = styled.button`
   height: 40px;
   background: whitesmoke;
   color: black;
-  font-size: 1em;
   margin-top: 20px;
   margin-bottom: 20px;
 

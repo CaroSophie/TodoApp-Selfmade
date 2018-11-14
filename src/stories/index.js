@@ -1,19 +1,46 @@
-import React from 'react';
+import React from 'react'
 
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
+import { storiesOf } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
 
-import { Button, Welcome } from '@storybook/react/demo';
+import Todo from '../Todo'
+import Progressbar from '../Progressbar'
+import Button from '../Button'
+import Counter from '../Counter'
+import Delete from '../Delete'
+import Input from '../Input'
+import Separator from '../Separator'
 
-storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
+storiesOf('Todo', module)
+  .add('TODO', () => (
+    <Todo text="Test" done={false} toggle={action('toggled')} />
+  ))
+  .add('DONE', () => (
+    <Todo text="Test" done={true} toggle={action('toggled')} />
+  ))
 
-storiesOf('Button', module)
-  .add('with text', () => <Button onClick={action('clicked')}>Hello Button</Button>)
-  .add('with some emoji', () => (
-    <Button onClick={action('clicked')}>
-      <span role="img" aria-label="so cool">
-        😀 😎 👍 💯
-      </span>
-    </Button>
-  ));
+storiesOf('Progressbar', module).add('Show percents', () => (
+  <Progressbar percentage={0.3} />
+))
+
+storiesOf('Button', module).add('Togglebutton', () => (
+  <Button
+    defaultText={'Just kidding'}
+    alternativeText={'Click here'}
+    onClick={() => console.log('click')}
+  />
+))
+
+storiesOf('Counter', module).add('Counting', () => <Counter num={1} />)
+
+storiesOf('Delete', module).add('Deletebutton', () => (
+  <Delete handleDelete={action('delete Todo')} />
+))
+
+storiesOf('Input', module).add('Press enter', () => (
+  <Input onEnter={action('Show written input')} />
+))
+
+storiesOf('Separator', module)
+  .add('TODO', () => <Separator text="TODO" />)
+  .add('DONE', () => <Separator text="DONE" />)
