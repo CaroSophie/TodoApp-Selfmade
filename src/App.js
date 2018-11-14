@@ -127,6 +127,7 @@ class App extends Component {
         </Styleinput>
         <Progressbar percentage={this.determineProgress()} />
         <Separator text="TODO" />
+
         {this.renderTodoList()}
         <Separator text="DONE" />
         {this.renderDoneList()}
