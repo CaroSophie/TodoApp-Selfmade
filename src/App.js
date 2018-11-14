@@ -2,10 +2,13 @@ import React, { Component } from 'react'
 import uid from 'uid'
 import Header from './Header'
 import Input from './Input'
+import Counter from './Counter'
 import Todo from './Todo'
 import Delete from './Delete'
-import Counter from './Counter'
+
 import Separator from './Separator'
+import Progressbar from './Progressbar'
+
 import styled from 'styled-components'
 
 const Styleinput = styled.div`
@@ -103,8 +106,15 @@ class App extends Component {
     return this.state.todos.filter(item => item.done).length
   }
 
+  determineProgress() {
+    const { todos } = this.state
+    const doneTodos = todos.filter(t => t.done)
+    return doneTodos.length / todos.length
+  }
+
   render() {
     this.save()
+
     return (
       <div>
         <Header />
@@ -112,6 +122,7 @@ class App extends Component {
           <Input handleKeyUp={this.addTodo} />
           <Counter num={this.counterTodo()} />
         </Styleinput>
+        <Progressbar percentage={this.determineProgress()} />
         <Separator text="TODO" />
         {this.renderTodoList()}
         <Separator text="DONE" />

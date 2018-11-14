@@ -2,10 +2,9 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 const Writetodo = styled.input`
-  margin: 10px;
   background-color: white;
   font-size: 15px;
-  height: 40px;
+  height: 100px;
   width: 65%;
 
   &:focus {
