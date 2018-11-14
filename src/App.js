@@ -5,9 +5,9 @@ import Input from './Input'
 import Counter from './Counter'
 import Todo from './Todo'
 import Delete from './Delete'
-
 import Separator from './Separator'
 import Progressbar from './Progressbar'
+import Button from './Button'
 
 import styled from 'styled-components'
 
@@ -26,6 +26,10 @@ const Showtodos = styled.div`
   background: whitesmoke;
   opacity: 0.8;
   height: 40px;
+`
+
+const Breakline = styled.hr`
+  margin-top: 20px;
 `
 
 class App extends Component {
@@ -73,34 +77,24 @@ class App extends Component {
   renderTodoList() {
     return this.state.todos
       .filter(item => !item.done)
-      .map(todo => (
-        <Showtodos key={todo.id}>
-          <Todo
-            key={todo.id}
-            text={todo.text}
-            toggle={() => this.toggleDone(todo.id)}
-            done={todo.done}
-          />
-          <Delete deletefunction={() => this.deleteToDo(todo.id)} />
-        </Showtodos>
-      ))
+      .map(this.renderSingleTodo)
   }
 
   renderDoneList() {
-    return this.state.todos
-      .filter(item => item.done)
-      .map(todo => (
-        <Showtodos key={todo.id}>
-          <Todo
-            key={todo.id}
-            text={todo.text}
-            toggle={() => this.toggleDone(todo.id)}
-            done={todo.done}
-          />
-          <Delete handleDelete={() => this.deleteToDo(todo.id)} />
-        </Showtodos>
-      ))
+    return this.state.todos.filter(item => item.done).map(this.renderSingleTodo)
   }
+
+  renderSingleTodo = todo => (
+    <Showtodos key={todo.id}>
+      <Todo
+        key={todo.id}
+        text={todo.text}
+        toggle={() => this.toggleDone(todo.id)}
+        done={todo.done}
+      />
+      <Delete handleDelete={() => this.deleteToDo(todo.id)} />
+    </Showtodos>
+  )
 
   counterTodo() {
     return this.state.todos.filter(item => item.done).length
@@ -127,6 +121,12 @@ class App extends Component {
         {this.renderTodoList()}
         <Separator text="DONE" />
         {this.renderDoneList()}
+        <Breakline />
+        <Button
+          defaultText={'Test'}
+          alternativeText={'Hallo'}
+          onClick={() => console.log('click')}
+        />
       </div>
     )
   }

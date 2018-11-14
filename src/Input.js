@@ -3,9 +3,11 @@ import styled from 'styled-components'
 
 const Writetodo = styled.input`
   background-color: white;
-  font-size: 15px;
+  font-size: 20px;
   height: 100px;
   width: 65%;
+  border-radius: 10px 10px 10px;
+  border: 2px solid grey;
 
   &:focus {
     outline: none;
