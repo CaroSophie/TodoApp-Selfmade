@@ -32,6 +32,15 @@ const Breakline = styled.hr`
   margin-top: 20px;
 `
 
+const Footr = styled.footer`
+  background: grey;
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
 class App extends Component {
   state = {
     todos: this.load()
@@ -122,11 +131,13 @@ class App extends Component {
         <Separator text="DONE" />
         {this.renderDoneList()}
         <Breakline />
-        <Button
-          defaultText={'Test'}
-          alternativeText={'Hallo'}
-          onClick={() => console.log('click')}
-        />
+        <Footr>
+          <Button
+            defaultText={'Test'}
+            alternativeText={'Hallo'}
+            onClick={() => console.log('click')}
+          />
+        </Footr>
       </div>
     )
   }

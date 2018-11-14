@@ -4,9 +4,10 @@ import styled from 'styled-components'
 const Togglebutton = styled.button`
   width: 100px;
   height: 40px;
-  background: lightskyblue;
+  background: darkred;
+  color: white;
   margin-top: 20px;
-  margin-left: 35%;
+  margin-bottom: 20px;
 
   &:focus {
     outline: none;
@@ -14,6 +15,7 @@ const Togglebutton = styled.button`
 
   &.active {
     background: whitesmoke;
+    color: black;
   }
 `
 
@@ -32,7 +34,7 @@ class Button extends Component {
     const { isDefault } = this.state
     return (
       <Togglebutton
-        className={isDefault ? 'active' : ''}
+        className={isDefault ? '' : 'active'}
         onClick={this.handleToggle}
       >
         {isDefault ? defaultText : alternativeText}
