@@ -5,20 +5,20 @@ import { withKnobs, text, boolean, number } from '@storybook/addon-knobs'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 
-import Todo from '../Todo'
-import Progressbar from '../Progressbar'
-import Button from '../Button'
-import Counter from '../Counter'
-import Delete from '../Delete'
-import Input from '../Input'
-import Separator from '../Separator'
+import Todo from '../Components/Todo'
+import Progressbar from '../Components/Progressbar'
+import Button from '../Components/Button'
+import Counter from '../Components/Counter'
+import Delete from '../Components/Delete'
+import Input from '../Components/Input'
+import Separator from '../Components/Separator'
 
 storiesOf('Todo', module)
   .addDecorator(withKnobs)
   .add('TODO', () => (
     <Todo
       text={text('Label', 'Todo')}
-      done={boolean('Still open', false)}
+      done={boolean('Change to done', false)}
       toggle={action('toggled')}
     />
   ))

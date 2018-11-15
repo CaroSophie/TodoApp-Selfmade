@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
+import App from './Components/App'
 import * as serviceWorker from './serviceWorker'
 
-import Globalstyle from './Globalstyle'
+import Globalstyle from './Components/Globalstyle'
 
 ReactDOM.render(
   <React.Fragment>
