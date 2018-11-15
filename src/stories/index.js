@@ -16,30 +16,40 @@ import Separator from '../Separator'
 storiesOf('Todo', module)
   .addDecorator(withKnobs)
   .add('TODO', () => (
-    <Todo text="Test" done={false} toggle={action('toggled')} />
+    <Todo
+      text={text('Label', 'Todo')}
+      done={boolean('Still open', false)}
+      toggle={action('toggled')}
+    />
   ))
   .addDecorator(withKnobs)
   .add('DONE', () => (
-    <Todo text="Test" done={true} toggle={action('toggled')} />
+    <Todo
+      text={text('Label', 'Done')}
+      done={boolean('Clicked', true)}
+      toggle={action('toggled')}
+    />
   ))
 
 storiesOf('Progressbar', module)
   .addDecorator(withKnobs)
-  .add('Show percents', () => <Progressbar percentage={0.3} />)
+  .add('Show percents', () => (
+    <Progressbar percentage={number('Progress', '0.3')} />
+  ))
 
 storiesOf('Button', module)
   .addDecorator(withKnobs)
   .add('Togglebutton', () => (
     <Button
-      defaultText={'Just kidding'}
-      alternativeText={'Click here'}
+      defaultText={text('Label', 'Just kidding')}
+      alternativeText={text('Label', 'Click here')}
       onClick={() => console.log('click')}
     />
   ))
 
 storiesOf('Counter', module)
   .addDecorator(withKnobs)
-  .add('Counting', () => <Counter num={1} />)
+  .add('Counting', () => <Counter num={number('Counter', '1')} />)
 
 storiesOf('Delete', module)
   .addDecorator(withKnobs)
